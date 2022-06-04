@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index() {
-        echo 'Seja bem vindo!';
+        return view('site.index');
     }
 }
