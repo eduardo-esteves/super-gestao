@@ -17,4 +17,6 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'index']);
 
-Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'index']);
+Route::get('/contact/{name}/{last_name?}', function(string $name, string $last_name=null) {
+    echo "Hello {$name} {$last_name}";
+});
