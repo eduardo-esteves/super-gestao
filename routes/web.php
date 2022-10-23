@@ -17,6 +17,8 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'index']);
 
-Route::get('/contact/{name}/{last_name?}', function(string $name, string $last_name=null) {
-    echo "Hello {$name} {$last_name}";
-});
+Route::get('/contact/{name}/{category_id}', function(string $name, int $category_id) {
+    echo "Hello {$name} {$category_id}";
+})
+    -> where('name', '[a-zA-Z]+')
+    -> where('category_id', '[0-9]+');
