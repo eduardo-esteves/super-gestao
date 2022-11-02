@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
-Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'index']);
+Route::get('/about', [\App\Http\Controllers\SobreNosController::class, 'index']);
 
-Route::get('/contact/{name}/{category_id}', function(string $name, int $category_id) {
-    echo "Hello {$name} {$category_id}";
-})
-    -> where('name', '[a-zA-Z]+')
-    -> where('category_id', '[0-9]+');
+Route::get('/contact', [\App\Http\Controllers\ContatoController::class, 'index']);
