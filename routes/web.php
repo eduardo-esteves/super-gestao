@@ -16,8 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/about', [\App\Http\Controllers\SobreNosController::class, 'index']);
 Route::get('/contact', [\App\Http\Controllers\ContatoController::class, 'index']);
+Route::get('/login', function () { return 'Login'; });
 
-Route::get('/login', function(){ return 'Login';});
-Route::get('/clients', function(){ return 'Clients';});
-Route::get('/providers', function(){ return 'Providers';});
-Route::get('/products', function(){ return 'Products';});
+Route::prefix('/app')->group(function () {
+    Route::get('/clients', function () { return 'Clients'; });
+    Route::get('/providers', function () { return 'Providers'; });
+    Route::get('/products', function () { return 'Products'; });
+});
