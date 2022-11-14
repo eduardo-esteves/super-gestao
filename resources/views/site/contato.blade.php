@@ -3,5 +3,10 @@
 <ul>
     <li><a href="{{ route('site.index') }}">Home</a></li>
     <li><a href="{{ route('site.about') }}">Sobre nós</a></li>
-    <li><a href="{{ route('site.contact') }}">Contato</a></li>
+    <li><a href="{{ route('site.contact', [
+        'user'      => $user,
+        'password'  => $password
+    ]) }}">Contato</a></li>
 </ul>
+
+<p> Recebido o usuário {{ $user }} e senha {{ $password }}</p>
