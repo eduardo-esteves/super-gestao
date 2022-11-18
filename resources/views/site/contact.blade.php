@@ -1,5 +1,7 @@
 @extends('site.templates.basic')
 
+@section('title', 'Contato')
+
 @section('content')
     <div class="topo">
 
