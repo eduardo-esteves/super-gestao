@@ -7,6 +7,7 @@
 </head>
 
     <body>
+        @include('site._includes.topo')
         @yield('content')
     </body>
 
