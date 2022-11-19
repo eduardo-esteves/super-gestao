@@ -3,8 +3,6 @@
 @section('title', 'Sobre')
 
 @section('content')
-    @include('site._includes.topo')
-
     <div class="conteudo-pagina">
         <div class="titulo-pagina">
             <h1>Olá, eu sou o Super Gestão</h1>

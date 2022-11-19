@@ -3,8 +3,6 @@
 @section('title', 'Home')
 
 @section('content')
-    @include('site._includes.topo')
-
     <div class="conteudo-destaque">
 
         <div class="esquerda">

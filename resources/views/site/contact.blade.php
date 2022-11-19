@@ -3,8 +3,6 @@
 @section('title', 'Contato')
 
 @section('content')
-    @include('site._includes.topo')
-
     <div class="conteudo-pagina">
         <div class="titulo-pagina">
             <h1>Entre em contato conosco</h1>
