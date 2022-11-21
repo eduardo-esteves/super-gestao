@@ -10,7 +10,8 @@
 
         <div class="informacao-pagina">
             <div class="contato-principal">
-                <form action="{{ route('site.contact') }}" method="get">
+                <form action="{{ route('site.contact') }}" method="post">
+                    @csrf
                     <input
                         name="name"
                         type="text"
