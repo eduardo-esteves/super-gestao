@@ -4,21 +4,21 @@
         name="name"
         type="text"
         placeholder="Nome"
-        class="borda-preta">
+        class="{{ $class }}">
     <br>
     <input
         name="phone"
         type="text"
         placeholder="Telefone"
-        class="borda-preta">
+        class="{{ $class }}">
     <br>
     <input
         name="email"
         type="text"
         placeholder="E-mail"
-        class="borda-preta">
+        class="{{ $class }}">
     <br>
-    <select name="reason_contact" class="borda-preta">
+    <select name="reason_contact" class="{{ $class }}">
         <option value="">Qual o motivo do contato?</option>
         <option value="1">Dúvida</option>
         <option value="2">Elogio</option>
@@ -27,13 +27,13 @@
     <br>
     <textarea
         name="message"
-        class="borda-preta">
+        class="{{ $class }}">
         Preencha aqui a sua mensagem
     </textarea>
     <br>
     <button
         type="submit"
-        class="borda-preta">
+        class="{{ $class }}">
         ENVIAR
     </button>
 </form>
