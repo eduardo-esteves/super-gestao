@@ -15,13 +15,12 @@ class CreateSiteContactsTable extends Migration
     {
         Schema::create('site_contacts', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-
             $table->string('name', 100);
             $table->string('phone', 20);
             $table->string('email', 100);
             $table->smallInteger('reason_contact');
             $table->mediumText('message');
+            $table->timestamps();
 
             $table->unique('email');
         });
