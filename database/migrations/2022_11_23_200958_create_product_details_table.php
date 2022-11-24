@@ -19,12 +19,6 @@ class CreateProductDetailsTable extends Migration
             $table->float('width', 8, 2);
             $table->float('height', 8, 2);
             $table->timestamps();
-
-            $table->foreignId('product_id')
-                ->unique()
-                ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
     }
 
