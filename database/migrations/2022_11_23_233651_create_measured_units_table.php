@@ -21,11 +21,11 @@ class CreateMeasuredUnitsTable extends Migration
         });
 
         Schema::table('products', function (Blueprint $table) {
-            $table->foreignId('measured_units_id')->constrained();
+            $table->foreignId('measured_unit_id')->constrained();
         });
 
         Schema::table('product_details', function (Blueprint $table) {
-            $table->foreignId('measured_units_id')->constrained();
+            $table->foreignId('measured_unit_id')->constrained();
         });
     }
 
