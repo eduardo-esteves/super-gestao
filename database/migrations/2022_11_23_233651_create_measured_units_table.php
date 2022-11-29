@@ -37,11 +37,11 @@ class CreateMeasuredUnitsTable extends Migration
     public function down()
     {
         Schema::table('product_details', function (Blueprint $table) {
-            $table->dropForeign('product_details_measured_units_id_foreign');
+            $table->dropForeign('product_details_measured_unit_id_foreign');
         });
 
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign('products_measured_units_id_foreign');
+            $table->dropForeign('products_measured_unit_id_foreign');
         });
 
         Schema::dropIfExists('measured_units');
