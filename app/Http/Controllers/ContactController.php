@@ -8,7 +8,16 @@ use App\Models\SiteContact;
 class ContactController extends Controller
 {
     public function index() {
-        return view('site.contact');
+        $reason_contact = [
+            ''  => 'Qual o motivo do contato?',
+            '1' =>  'Dúvida',
+            '2' =>  'Elogio',
+            '3' =>  'Reclamação',
+        ];
+
+        return view('site.contact', [
+            'reason_contact' =>$reason_contact
+        ]);
     }
 
     public function saveContact(Request $request) {

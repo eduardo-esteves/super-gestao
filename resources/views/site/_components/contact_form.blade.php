@@ -13,25 +13,27 @@
         name="name"
         type="text"
         placeholder="Nome"
-        class="{{ $class }}">
+        class="{{ $class }}"
+        value="{{ old('name') }}">
     <br>
     <input
         name="phone"
         type="text"
         placeholder="Telefone"
-        class="{{ $class }}">
+        class="{{ $class }}"
+        value="{{ old('phone') }}">
     <br>
     <input
         name="email"
         type="text"
         placeholder="E-mail"
-        class="{{ $class }}">
+        class="{{ $class }}"
+        value="{{ old('email') }}">
     <br>
     <select name="reason_contact" class="{{ $class }}">
-        <option value="">Qual o motivo do contato?</option>
-        <option value="1">Dúvida</option>
-        <option value="2">Elogio</option>
-        <option value="3">Reclamação</option>
+        @foreach( $reason_contact as $key => $reason )
+            <option value="{{ $key }}" {{ old('reason_contact') == $key ? 'selected': '' }}>{{ $reason }}</option>
+        @endforeach
     </select>
     <br>
     <textarea

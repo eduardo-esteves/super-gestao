@@ -10,7 +10,10 @@
 
         <div class="informacao-pagina">
             <div class="contato-principal">
-                @component('site._components.contact_form', ['class' => 'borda-preta'])
+                @component('site._components.contact_form', [
+                    'class' => 'borda-preta',
+                    'reason_contact' => $reason_contact
+                ])
                 @endcomponent
             </div>
         </div>
