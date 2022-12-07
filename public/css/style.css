@@ -187,3 +187,19 @@ button:hover {
 .redes-sociais img {
     margin: 0px 15px 0px 15px;
 }
+
+.alert.alert-danger {
+    width: 70%;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.alert.alert-danger li {
+    display: block;
+    list-style: none;
+    background-color: red;
+    padding: 15px 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
