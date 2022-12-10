@@ -16,7 +16,7 @@ class ContactController extends Controller
         ];
 
         return view('site.contact', [
-            'reason_contact' =>$reason_contact
+            'reason_contact' => $reason_contact
         ]);
     }
 
@@ -24,11 +24,20 @@ class ContactController extends Controller
         //dd($request->post());
 
         $request->validate([
-            'name'      => 'required|min:3|max:100',
+            'name'      => 'min:3|max:100',
             'phone'     => 'required',
-            'email'     => 'required',
+            'email'     => 'email',
             'message'   => 'required',
-            'reason_contact' => 'required',
+            'reason_contact' => 'required|max:2000',
+        ],
+        [
+            'name.min'                  => 'Nome deve ter no minímo de 3 caracteres',
+            'name.max'                  => 'Nome deve ter no máximo de 100 caracteres',
+            'phone.required'            => 'Informe o telefone ',
+            'email.email'               => 'Informe um email válido',
+            'message.required'          => 'Mensagem é obrigatório',
+            'reason_contact.required'   => 'Informe o motivo do contato',
+            'reason_contact.max'        => 'Motivo do contato deve ter no máximo 2000 caracteres'
         ]);
 
         $contact            = new SiteContact();
@@ -39,5 +48,6 @@ class ContactController extends Controller
         $contact->reason_contact = $request->input('reason_contact');
 
         $contact->save();
+        return redirect()->route('site.index');
     }
 }

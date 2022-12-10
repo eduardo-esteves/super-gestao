@@ -1,8 +1,8 @@
 <form action="{{ route('site.contact') }}" method="post">
 
-    @if ( $errors->any() )
+    @if( $errors->any() )
         <div class="alert alert-danger">
-            @foreach ( $errors->all() as $error )
+            @foreach( $errors->all() as $error )
                 <li> {{ $error }} </li>
             @endforeach
         </div>
