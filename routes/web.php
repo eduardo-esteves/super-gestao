@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Middleware\AcessLog;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('site.index');
-Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('site.about');
-Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index'])->name('site.contact');
-Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'saveContact'])->name('site.contact');
+Route::get('/', [HomeController::class, 'index'])->name('site.index')->middleware(AcessLog::class);
+Route::get('/about', [AboutController::class, 'index'])->name('site.about');
+Route::get('/contact', [ContactController::class, 'index'])->name('site.contact');
+Route::post('/contact', [ContactController::class, 'saveContact'])->name('site.contact');
 Route::get('/login', function () { return 'Login'; })->name('site.login');
 
 Route::prefix('/app')->group(function () {
