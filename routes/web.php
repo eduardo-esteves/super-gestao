@@ -26,7 +26,7 @@ Route::post('/contact', [ContactController::class, 'saveContact'])->name('site.c
 Route::get('/login/{error?}', [LoginController::class, 'index'])->name('site.login');
 Route::post('/login', [LoginController::class, 'signIn'])->name('site.login');
 
-Route::prefix('/app')->group(function () {
+Route::middleware(Login::class)->prefix('/app')->group(function () {
     Route::get('/clients', function () { return 'Clients'; })->name('app.clients');
     Route::get('/providers', function () { return 'Providers'; })->name('app.providers');
     Route::get('/products', function () { return 'Products'; })->name('app.products');
