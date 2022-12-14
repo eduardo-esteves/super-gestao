@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Middleware\AcessLog;
+use App\Http\Controllers\LoginController;
+use App\Http\Middleware\Login;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,8 @@ Route::get('/', [HomeController::class, 'index'])->name('site.index')->middlewar
 Route::get('/about', [AboutController::class, 'index'])->name('site.about');
 Route::get('/contact', [ContactController::class, 'index'])->name('site.contact');
 Route::post('/contact', [ContactController::class, 'saveContact'])->name('site.contact');
-Route::get('/login', function () { return 'Login'; })->name('site.login');
+Route::get('/login/{error?}', [LoginController::class, 'index'])->name('site.login');
+Route::post('/login', [LoginController::class, 'signIn'])->name('site.login');
 
 Route::prefix('/app')->group(function () {
     Route::get('/clients', function () { return 'Clients'; })->name('app.clients');
