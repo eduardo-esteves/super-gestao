@@ -57,7 +57,12 @@ class LoginController extends Controller
         $_SESSION['name']   = $data->name;
         $_SESSION['email']  = $data->email;
 
-        return redirect()->route('app.clients');
+        return redirect()->route('app.customers');
+    }
+
+    public function signOut() {
+        session_destroy();
+        return redirect()->route('site.index');
     }
 }
 
