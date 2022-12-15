@@ -33,6 +33,8 @@ Route::post('/login', [LoginController::class, 'signIn'])->name('site.login');
 Route::middleware(Login::class)->prefix('/app')->group(function () {
     Route::get('/customers', [CustomersController::class, 'index'])->name('app.customers');
     Route::get('/providers', [ProvidersController::class, 'index'])->name('app.providers');
+    Route::post('/providers/list', [ProvidersController::class, 'list'])->name('app.providers.list');
+    Route::get('/providers/add', [ProvidersController::class, 'add'])->name('app.providers.add');
     Route::get('/products', [ProductsController::class, 'index'])->name('app.products');
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/sign-out', [LoginController::class, 'signOut'])->name('app.signOut');
