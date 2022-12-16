@@ -41,8 +41,15 @@ class ProvidersController extends Controller
         return view('app.providers.add', ['msg_success' => $msg_success]);
     }
 
-    public function list(): \Illuminate\View\View|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory
+    public function list(Request $request): \Illuminate\View\View|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory
     {
-        return view('app.providers.list');
+        $name = $request->input('name') ?? 'abcde';
+
+        $providers = Provider::where('name', 'like', '%'. $name .'%')
+            ->orwhere('email', $request->input('email'))
+            ->orwhere('uf', $request->input('uf'))
+            ->get();
+
+        return view('app.providers.list', ['providers' => $providers]);
     }
 }
