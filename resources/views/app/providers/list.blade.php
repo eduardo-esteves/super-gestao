@@ -32,7 +32,7 @@
                                 <td>{{ $provider->email }}</td>
                                 <td>{{ $provider->uf }}</td>
                                 <td>Excluir</td>
-                                <td>Editar</td>
+                                <td><a href="{{ route('app.providers.edit', $provider->id) }}">Editar</a></td>
                             </tr>
                         @endforeach
                     </tbody>

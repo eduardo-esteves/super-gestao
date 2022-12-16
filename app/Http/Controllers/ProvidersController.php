@@ -7,16 +7,16 @@ use App\Models\Provider;
 
 class ProvidersController extends Controller
 {
-    public function index(): \Illuminate\View\View|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory
+    public function index(): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View
     {
         return view('app.providers.index');
     }
 
-    public function add(Request $request): \Illuminate\View\View|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory
+    public function add(Request $request): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View|\Illuminate\Http\RedirectResponse
     {
-        $msg_success = '';
+        $_msg = '';
 
-        if ($request->input('_token')) {
+        if ( $request->input('_token') && empty($request->input('id')) ) {
             $rules = [
                 'name' => 'min:3|max:100',
                 'email' => 'email',
@@ -35,13 +35,24 @@ class ProvidersController extends Controller
 
             Provider::create($request->all());
 
-            $msg_success = "Cadastro realizado com sucesso!";
+            $_msg = "Cadastro realizado com sucesso!";
         }
 
-        return view('app.providers.add', ['msg_success' => $msg_success]);
+        if( !empty($request->input('_token')) && !empty($request->input('id')) ) {
+            $provider = Provider::find($request->input('id'));
+            $provider->update($request->all());
+            $_msg = "Fornecedor ID: {$provider->id} atualizado com sucesso!";
+
+            return redirect()->route('app.providers.edit', [
+                'msg'   => $_msg,
+                'id'    => $provider->id,
+            ]);
+        }
+
+        return view('app.providers.add', ['msg' => $_msg]);
     }
 
-    public function list(Request $request): \Illuminate\View\View|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory
+    public function list(Request $request): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View
     {
         $name = $request->input('name') ?? 'abcde';
 
@@ -51,5 +62,15 @@ class ProvidersController extends Controller
             ->get();
 
         return view('app.providers.list', ['providers' => $providers]);
+    }
+
+    public function edit($id, $msg = ''): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View
+    {
+        $provider = Provider::find($id);
+
+        return view('app.providers.add', [
+            'provider' => $provider,
+            'msg'      => $msg,
+        ]);
     }
 }
