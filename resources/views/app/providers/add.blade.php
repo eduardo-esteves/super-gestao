@@ -15,15 +15,16 @@
         </div>
         <div class="informacao-pagina">
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
-                {{ $msg_success }}
+                {{ $msg ?? '' }}
                 <form action="{{ route('app.providers.add') }}" method="post">
                     @csrf
+                    <input type="hidden" name="id" value="{{ $provider->id ?? '' }}">
                     <input
                             type="text"
                             name="name"
                             class="borda-preta"
                             placeholder="Nome"
-                            value="{{ old('name') }}">
+                            value="{{ $provider->name ?? old('name') }}">
                     {{ $errors->has('name') ? $errors->first('name') : '' }}
 
                     <input
@@ -31,7 +32,7 @@
                             name="email"
                             class="borda-preta"
                             placeholder="Email"
-                            value="{{ old('email') }}">
+                            value="{{ $provider->email ?? old('email') }}">
                     {{ $errors->has('email') ? $errors->first('email') : '' }}
 
                     <input
@@ -39,7 +40,7 @@
                             name="uf"
                             class="borda-preta"
                             placeholder="UF"
-                            value="{{ old('uf') }}">
+                            value="{{ $provider->uf ?? old('uf') }}">
                     {{ $errors->has('uf') ? $errors->first('uf') : '' }}
 
                     <button type="submit" class="borda-preta">Cadastrar</button>
