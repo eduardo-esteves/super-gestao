@@ -34,6 +34,7 @@ Route::middleware(Login::class)->prefix('/app')->group(function () {
     Route::get('/customers', [CustomersController::class, 'index'])->name('app.customers');
     Route::get('/providers', [ProvidersController::class, 'index'])->name('app.providers');
     Route::post('/providers/list', [ProvidersController::class, 'list'])->name('app.providers.list');
+    Route::get('/providers/list', [ProvidersController::class, 'list'])->name('app.providers.list');
     Route::get('/providers/add', [ProvidersController::class, 'add'])->name('app.providers.add');
     Route::post('/providers/add', [ProvidersController::class, 'add'])->name('app.providers.add');
     Route::get('/providers/edit/{id}/{msg?}', [ProvidersController::class, 'edit'])->name('app.providers.edit');

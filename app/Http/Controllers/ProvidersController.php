@@ -59,9 +59,12 @@ class ProvidersController extends Controller
         $providers = Provider::where('name', 'like', '%'. $name .'%')
             ->orwhere('email', $request->input('email'))
             ->orwhere('uf', $request->input('uf'))
-            ->get();
+            ->paginate(2);
 
-        return view('app.providers.list', ['providers' => $providers]);
+        return view('app.providers.list', [
+            'providers' => $providers,
+            'request'   => $request->all(),
+        ]);
     }
 
     public function edit($id, $msg = ''): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View
