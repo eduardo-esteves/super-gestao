@@ -37,6 +37,10 @@
                         @endforeach
                     </tbody>
                 </table>
+                @php
+                 unset($request['_token']);
+                @endphp
+                {{ $providers->appends($request)->links() }}
             </div>
         </div>
     </div>
