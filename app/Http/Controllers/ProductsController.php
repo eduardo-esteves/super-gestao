@@ -12,9 +12,14 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View
     {
-        //
+        $products = Product::paginate(2);
+
+        return view('app.products.index', [
+            'products' => $products,
+            'request'   => $request->all(),
+        ]);
     }
 
     /**
