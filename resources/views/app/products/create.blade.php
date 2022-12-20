@@ -16,7 +16,7 @@
         <div class="informacao-pagina">
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
                 {{ $msg ?? '' }}
-                <form action="" method="post">
+                <form action="{{ route('products.store') }}" method="post">
                     @csrf
                     <input
                             type="text"
@@ -46,7 +46,7 @@
                         <option>-- Selecione a unidade de medida --</option>
                         @isset($measured_units)
                             @foreach($measured_units as $measured_unit)
-                                <option value="{{ $measured_unit->unit }}">{{ $measured_unit->description }}</option>
+                                <option value="{{ $measured_unit->id }}">{{ $measured_unit->description }}</option>
                             @endforeach
                         @endisset
                     </select>

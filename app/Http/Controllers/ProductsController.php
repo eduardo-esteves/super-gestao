@@ -41,9 +41,11 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request):  \Illuminate\Contracts\Foundation\Application|
+    \Illuminate\View\View|\Illuminate\Http\RedirectResponse
     {
-        //
+        Product::create($request->all());
+        return redirect()->route('products.index');
     }
 
     /**
