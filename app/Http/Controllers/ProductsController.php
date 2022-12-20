@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
+
+use App\Models\Product;
+use App\Models\MeasuredUnit;
 
 class ProductsController extends Controller
 {
@@ -27,9 +29,10 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View
     {
-        //
+        $measured_units = MeasuredUnit::all();
+        return view('app.products.create', compact('measured_units'));
     }
 
     /**
