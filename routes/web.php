@@ -38,6 +38,7 @@ Route::middleware(Login::class)->prefix('/app')->group(function () {
     Route::get('/providers/add', [ProvidersController::class, 'add'])->name('app.providers.add');
     Route::post('/providers/add', [ProvidersController::class, 'add'])->name('app.providers.add');
     Route::get('/providers/edit/{id}/{msg?}', [ProvidersController::class, 'edit'])->name('app.providers.edit');
+    Route::get('/providers/delete/{id}', [ProvidersController::class, 'delete'])->name('app.providers.delete');
     Route::get('/products', [ProductsController::class, 'index'])->name('app.products');
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/sign-out', [LoginController::class, 'signOut'])->name('app.signOut');

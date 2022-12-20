@@ -31,7 +31,7 @@
                                 <td>{{ $provider->name }}</td>
                                 <td>{{ $provider->email }}</td>
                                 <td>{{ $provider->uf }}</td>
-                                <td>Excluir</td>
+                                <td><a href="{{ route('app.providers.delete', $provider->id) }}">Excluir</a></td>
                                 <td><a href="{{ route('app.providers.edit', $provider->id) }}">Editar</a></td>
                             </tr>
                         @endforeach

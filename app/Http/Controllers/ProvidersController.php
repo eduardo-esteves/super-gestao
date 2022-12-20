@@ -67,7 +67,7 @@ class ProvidersController extends Controller
         ]);
     }
 
-    public function edit($id, $msg = ''): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View
+    public function edit(string $id, $msg = ''): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View
     {
         $provider = Provider::find($id);
 
@@ -75,5 +75,16 @@ class ProvidersController extends Controller
             'provider' => $provider,
             'msg'      => $msg,
         ]);
+    }
+
+    public function delete(string $id): \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
+    {
+        $provider = Provider::find($id);
+
+        if(!empty($provider)) {
+            $provider->delete();
+        }
+
+        return redirect()->route('app.providers.list');
     }
 }
