@@ -71,9 +71,10 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $product): \Illuminate\Contracts\Foundation\Application |
+    \Illuminate\View\View
     {
-        //
+        return view('app.products.show', compact('product'));
     }
 
     /**
