@@ -85,7 +85,12 @@ class ProductsController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $measured_units = MeasuredUnit::all();
+
+        return view('app.products.edit', [
+            'product' => $product,
+            'measured_units' => $measured_units,
+        ]);
     }
 
     /**
