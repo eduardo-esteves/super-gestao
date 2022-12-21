@@ -16,30 +16,31 @@
         <div class="informacao-pagina">
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
                 {{ $msg ?? '' }}
-                <form action="" method="post">
+                <form action="{{ route('products.update', ['product' => $product->id]) }}" method="post">
                     @csrf
+                    @method('PUT')
                     <input
-                            type="text"
-                            name="name"
-                            class="borda-preta"
-                            placeholder="Nome"
-                            value="{{ $product->name ?? old('name') }}">
+                        type="text"
+                        name="name"
+                        class="borda-preta"
+                        placeholder="Nome"
+                        value="{{ $product->name ?? old('name') }}">
                     {{ $errors->has('name') ? $errors->first('name') : '' }}
 
                     <input
-                            type="text"
-                            name="description"
-                            class="borda-preta"
-                            placeholder="Descrição"
-                            value="{{ $product->description ?? old('description') }}">
+                        type="text"
+                        name="description"
+                        class="borda-preta"
+                        placeholder="Descrição"
+                        value="{{ $product->description ?? old('description') }}">
                     {{ $errors->has('description') ? $errors->first('description') : '' }}
 
                     <input
-                            type="text"
-                            name="pounds"
-                            class="borda-preta"
-                            placeholder="Peso"
-                            value="{{ $product->pounds ?? old('pounds') }}">
+                        type="text"
+                        name="pounds"
+                        class="borda-preta"
+                        placeholder="Peso"
+                        value="{{ $product->pounds ?? old('pounds') }}">
                     {{ $errors->has('pounds') ? $errors->first('pounds') : '' }}
 
                     <select name="measured_unit_id">
