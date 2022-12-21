@@ -14,7 +14,7 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View
+    public function index(Request $request): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
         $products = Product::paginate(2);
 
@@ -29,7 +29,7 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\View
+    public function create(): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
         $measured_units = MeasuredUnit::all();
         return view('app.products.create', compact('measured_units'));
@@ -41,8 +41,8 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request):  \Illuminate\Contracts\Foundation\Application|
-    \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+    public function store(Request $request):  \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View |
+        \Illuminate\Http\RedirectResponse
     {
         $rules = [
             'name'              => 'min:3|max:100',
@@ -71,8 +71,7 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product): \Illuminate\Contracts\Foundation\Application |
-    \Illuminate\View\View
+    public function show(Product $product): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
         return view('app.products.show', compact('product'));
     }
@@ -83,7 +82,7 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $product): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
         $measured_units = MeasuredUnit::all();
 
@@ -100,9 +99,12 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product): \Illuminate\Contracts\Foundation\Application |
+        \Illuminate\Http\RedirectResponse
     {
-        //
+        //dd($request->request, $product->getAttributes());
+        $product->update($request->all());
+        return redirect()->route('products.show', ['product' => $product->id]);
     }
 
     /**
