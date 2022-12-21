@@ -43,13 +43,18 @@
                     {{ $errors->has('pounds') ? $errors->first('pounds') : '' }}
 
                     <select name="measured_unit_id">
-                        <option>-- Selecione a unidade de medida --</option>
+                        <option value="0000">-- Selecione a unidade de medida --</option>
                         @isset($measured_units)
                             @foreach($measured_units as $measured_unit)
-                                <option value="{{ $measured_unit->id }}">{{ $measured_unit->description }}</option>
+                                <option
+                                    value="{{ $measured_unit->id }}"
+                                    {{ old('measured_unit_id') == $measured_unit->id ? 'selected' : '' }}>
+                                    {{ $measured_unit->description }}
+                                </option>
                             @endforeach
                         @endisset
                     </select>
+                    {{ $errors->has('measured_unit_id') ? $errors->first('measured_unit_id') : '' }}
 
                     <button type="submit" class="borda-preta">Cadastrar</button>
                 </form>

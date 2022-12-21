@@ -44,6 +44,23 @@ class ProductsController extends Controller
     public function store(Request $request):  \Illuminate\Contracts\Foundation\Application|
     \Illuminate\View\View|\Illuminate\Http\RedirectResponse
     {
+        $rules = [
+            'name'              => 'min:3|max:100',
+            'description'       => 'min:3|max:100',
+            'pounds'            => 'integer',
+            'measured_unit_id'  => 'exists:measured_units,id',
+        ];
+
+        $msg = [
+            'name.min'          => 'Deve have ao menos 3 caracteres',
+            'name.max'          => 'Máximo de 100 caracteres',
+            'description.min'   => 'Minímo de 100 caracteres',
+            'pounds.integer'    => 'Digite um valor inteiro',
+            'measured_unit_id.exists' => 'A unidade de medida não existe',
+        ];
+
+        $request->validate($rules, $msg);
+
         Product::create($request->all());
         return redirect()->route('products.index');
     }
