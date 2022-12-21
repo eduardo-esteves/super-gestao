@@ -22,7 +22,7 @@
                         <th>Descrição</th>
                         <th>Peso</th>
                         <th>Unidade ID</th>
-                        <th></th>
+                        <th colspan="3">Açoes</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,8 +35,8 @@
                             <td><a href="{{ route('products.show', [
                                 'product' => $product->id
                             ]) }}">Visualizar</a></td>
+                            <td><a href="{{ route('products.edit', ['product' => $product->id]) }}">Editar</a></td>
                             <td><a href="">Excluir</a></td>
-                            <td><a href="">Editar</a></td>
                         </tr>
                     @endforeach
                     </tbody>
