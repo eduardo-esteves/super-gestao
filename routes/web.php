@@ -11,6 +11,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\ProvidersController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::middleware(Login::class)->prefix('/app')->group(function () {
 
     Route::resources([
         'products' => ProductsController::class,
+        'product-details' => ProductDetailsController::class,
     ]);
 
 });
