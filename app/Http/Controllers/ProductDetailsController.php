@@ -23,9 +23,12 @@ class ProductDetailsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): \Illuminate\View\View
     {
-        //
+        $measured_units = MeasuredUnit::all();
+        return view('app.product-details.create', [
+            'measured_units' => $measured_units,
+        ]);
     }
 
     /**
