@@ -5,7 +5,7 @@
 @section('content')
     <div class="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p>Produto - Adicionar</p>
+            <p>Produto > {{ (empty($product->id)) ? "Adicionar" : "Editar >> {$product->name}" }}</p>
         </div>
         <div class="menu">
             <ul>
@@ -16,8 +16,14 @@
         <div class="informacao-pagina">
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
                 {{ $msg ?? '' }}
-                <form action="{{ route('products.store') }}" method="post">
+                <form action="{{ (empty($product->id))
+                    ? route('products.store')
+                    : route('products.update', ['product' => $product->id]) }}" method="post">
                     @csrf
+                    @if(empty($product->id))
+                    @else
+                        @method('PUT')
+                    @endif
                     <input
                             type="text"
                             name="name"
@@ -48,7 +54,9 @@
                             @foreach($measured_units as $measured_unit)
                                 <option
                                     value="{{ $measured_unit->id }}"
-                                    {{ old('measured_unit_id') == $measured_unit->id ? 'selected' : '' }}>
+                                    {{ $measured_unit->id > 0
+                                        ? 'selected'
+                                        : ( old('measured_unit_id') == $measured_unit->id ? 'selected' : '' ) }}>
                                     {{ $measured_unit->description }}
                                 </option>
                             @endforeach
@@ -56,7 +64,7 @@
                     </select>
                     {{ $errors->has('measured_unit_id') ? $errors->first('measured_unit_id') : '' }}
 
-                    <button type="submit" class="borda-preta">Cadastrar</button>
+                    <button type="submit" class="borda-preta">{{ (empty($product->id)) ? 'Cadastrar' : 'Atualizar' }}</button>
                 </form>
             </div>
         </div>
