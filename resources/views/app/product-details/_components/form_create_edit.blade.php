@@ -1,6 +1,6 @@
 <form action="{{ (empty($product_detail->id))
     ? route('product-details.store')
-    : route('product-details.update', ['product' => $product_detail->id]) }}" method="post">
+    : route('product-details.update', ['product_detail' => $product_detail->id]) }}" method="post">
     @csrf
     @if(empty($product_detail->id))
     @else
@@ -12,7 +12,7 @@
         name="length"
         class="borda-preta"
         placeholder="Comprimento"
-        value="{{ $product_detail->name ?? old('name') }}">
+        value="{{ $product_detail->length ?? old('length') }}">
     {{ $errors->has('length') ? $errors->first('length') : '' }}
 
     <input
