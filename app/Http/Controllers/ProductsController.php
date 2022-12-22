@@ -86,7 +86,7 @@ class ProductsController extends Controller
     {
         $measured_units = MeasuredUnit::all();
 
-        return view('app.products.create', [
+        return view('app.products.edit', [
             'product' => $product,
             'measured_units' => $measured_units,
         ]);
