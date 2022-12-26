@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 use App\Models\MeasuredUnit;
+use App\Models\ProductDetail;
 
 class ProductsController extends Controller
 {
@@ -17,6 +18,16 @@ class ProductsController extends Controller
     public function index(Request $request): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
         $products = Product::paginate(2);
+
+        foreach($products as $key => $product) {
+            $product_details = ProductDetail::where('product_id', $product->id)->first();
+
+            if(!empty($product_details)) {
+                $products[$key]['length'] = $product_details->length;
+                $products[$key]['width'] =  $product_details->width;
+                $products[$key]['height'] = $product_details->height;
+            }
+        }
 
         return view('app.products.index', [
             'products' => $products,
@@ -113,7 +124,7 @@ class ProductsController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product): \Illuminate\Http\RedirectResponse
     {
         $product->delete();
         return redirect()->route('products.index');
