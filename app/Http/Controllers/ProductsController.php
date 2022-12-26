@@ -19,16 +19,6 @@ class ProductsController extends Controller
     {
         $products = Product::paginate(2);
 
-        foreach($products as $key => $product) {
-            $product_details = ProductDetail::where('product_id', $product->id)->first();
-
-            if(!empty($product_details)) {
-                $products[$key]['length'] = $product_details->length;
-                $products[$key]['width'] =  $product_details->width;
-                $products[$key]['height'] = $product_details->height;
-            }
-        }
-
         return view('app.products.index', [
             'products' => $products,
             'request'   => $request->all(),
