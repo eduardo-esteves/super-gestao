@@ -9,4 +9,9 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'description', 'pounds', 'measured_unit_id'];
+
+    public function productDetail(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne('App\Models\ProductDetail');
+    }
 }
