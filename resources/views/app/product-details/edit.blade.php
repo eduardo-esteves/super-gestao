@@ -13,6 +13,7 @@
             </ul>
         </div>
         <div class="informacao-pagina">
+            <h3>{{ $product_detail->product->name }}</h3>
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
                 {{ $msg ?? '' }}
                 @component('app.product-details._components.form_create_edit', [
