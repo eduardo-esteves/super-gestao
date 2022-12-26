@@ -22,6 +22,9 @@
                         <th>Descrição</th>
                         <th>Peso</th>
                         <th>Unidade ID</th>
+                        <th>Comprimento</th>
+                        <th>Altura</th>
+                        <th>Largura</th>
                         <th colspan="3">Açoes</th>
                     </tr>
                     </thead>
@@ -32,6 +35,9 @@
                             <td>{{ $product->description }}</td>
                             <td>{{ $product->pounds }}</td>
                             <td>{{ $product->measured_unit_id }}</td>
+                            <td>{{ $product->length ?? '' }}</td>
+                            <td>{{ $product->height ?? '' }}</td>
+                            <td>{{ $product->width ?? '' }}</td>
                             <td><a href="{{ route('products.show', [
                                 'product' => $product->id
                             ]) }}">Visualizar</a></td>
