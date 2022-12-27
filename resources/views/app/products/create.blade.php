@@ -17,7 +17,8 @@
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
                 {{ $msg ?? '' }}
                 @component('app._components.form_product', [
-                    'measured_units' => $measured_units,
+                    'measured_units'    => $measured_units,
+                    'providers'         => $providers,
                 ])
                 @endcomponent
             </div>

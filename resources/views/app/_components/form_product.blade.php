@@ -36,15 +36,35 @@
             @foreach($measured_units as $measured_unit)
                 <option
                     value="{{ $measured_unit->id }}"
-                    {{ $measured_unit->id > 0
-                        ? 'selected'
-                        : ( old('measured_unit_id') == $measured_unit->id ? 'selected' : '' ) }}>
+                    @if( !empty($product) )
+                        {{ $measured_unit->id === $product->measured_unit_id ? 'selected' : '' }}
+                    @else
+                        {{ old('measured_unit_id') == $measured_unit->id ? 'selected' : '' }}
+                    @endif >
                     {{ $measured_unit->description }}
                 </option>
             @endforeach
         @endisset
     </select>
     {{ $errors->has('measured_unit_id') ? $errors->first('measured_unit_id') : '' }}
+
+    <select name="provider_id">
+        <option value="0000">-- Selecione o fornecedor --</option>
+        @isset($providers)
+            @foreach($providers as $provider)
+                <option
+                    value="{{ $provider->id }}"
+                        @if( !empty($product) )
+                            {{ $provider->id === $product->provider_id ? 'selected' : '' }}
+                        @else
+                            {{ old('provider_id') == $provider->id ? 'selected' : '' }}
+                        @endif >
+                    {{ $provider->name }}
+                </option>
+            @endforeach
+        @endisset
+    </select>
+    {{ $errors->has('provider_id') ? $errors->first('provider_id') : '' }}
 
     <button type="submit" class="borda-preta">{{ (empty($product->id)) ? 'Cadastrar' : 'Atualizar' }}</button>
 </form>

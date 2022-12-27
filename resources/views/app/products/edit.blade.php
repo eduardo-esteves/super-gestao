@@ -19,6 +19,7 @@
                 @component('app._components.form_product', [
                     'product' => $product,
                     'measured_units' => $measured_units,
+                    'providers' => $providers,
                 ])
                 @endcomponent
             </div>

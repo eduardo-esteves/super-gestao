@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 use App\Models\MeasuredUnit;
-use App\Models\ProductDetail;
+use App\Models\Provider;
 
 class ProductsController extends Controller
 {
@@ -33,7 +33,8 @@ class ProductsController extends Controller
     public function create(): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
         $measured_units = MeasuredUnit::all();
-        return view('app.products.create', compact('measured_units'));
+        $providers      = Provider::all();
+        return view('app.products.create', compact('measured_units', 'providers'));
     }
 
     /**
@@ -86,10 +87,12 @@ class ProductsController extends Controller
     public function edit(Product $product): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
         $measured_units = MeasuredUnit::all();
+        $providers      = Provider::all();
 
         return view('app.products.edit', [
-            'product' => $product,
-            'measured_units' => $measured_units,
+            'product'           => $product,
+            'measured_units'    => $measured_units,
+            'providers'         => $providers,
         ]);
     }
 
