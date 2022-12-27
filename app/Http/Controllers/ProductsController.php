@@ -51,6 +51,7 @@ class ProductsController extends Controller
             'description'       => 'min:3|max:100',
             'pounds'            => 'integer',
             'measured_unit_id'  => 'exists:measured_units,id',
+            'provider_id'       => 'exists:providers,id',
         ];
 
         $msg = [
@@ -59,6 +60,7 @@ class ProductsController extends Controller
             'description.min'   => 'Minímo de 100 caracteres',
             'pounds.integer'    => 'Digite um valor inteiro',
             'measured_unit_id.exists' => 'A unidade de medida não existe',
+            'provider_id.exists' => 'O fornecedor não existe na tabela providers',
         ];
 
         $request->validate($rules, $msg);
@@ -107,6 +109,25 @@ class ProductsController extends Controller
         \Illuminate\Http\RedirectResponse
     {
         //dd($request->request, $product->getAttributes());
+        $rules = [
+            'name'              => 'min:3|max:100',
+            'description'       => 'min:3|max:100',
+            'pounds'            => 'integer',
+            'measured_unit_id'  => 'exists:measured_units,id',
+            'provider_id'       => 'exists:providers,id',
+        ];
+
+        $msg = [
+            'name.min'          => 'Deve have ao menos 3 caracteres',
+            'name.max'          => 'Máximo de 100 caracteres',
+            'description.min'   => 'Minímo de 100 caracteres',
+            'pounds.integer'    => 'Digite um valor inteiro',
+            'measured_unit_id.exists' => 'A unidade de medida não existe',
+            'provider_id.exists' => 'O fornecedor não existe na tabela providers',
+        ];
+
+        $request->validate($rules, $msg);
+
         $product->update($request->all());
         return redirect()->route('products.show', ['product' => $product->id]);
     }
