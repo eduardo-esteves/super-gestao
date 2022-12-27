@@ -14,4 +14,9 @@ class Product extends Model
     {
         return $this->hasOne('App\Models\ProductDetail');
     }
+
+    public function provider(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo('App\Models\Provider');
+    }
 }

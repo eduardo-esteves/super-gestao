@@ -12,4 +12,9 @@ class Provider extends Model
     use SoftDeletes;
 
     protected $fillable = ['name', 'uf', 'email'];
+
+    public function product(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany('App/Models/Product');
+    }
 }

@@ -20,6 +20,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Descrição</th>
+                        <th>Fornecedor</th>
                         <th>Peso</th>
                         <th>Unidade ID</th>
                         <th>Comprimento</th>
@@ -33,6 +34,7 @@
                         <tr>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->description }}</td>
+                            <td>{{ $product->provider->name }}</td>
                             <td>{{ $product->pounds }}</td>
                             <td>{{ $product->measured_unit_id }}</td>
                             <td>{{ $product->productDetail->length ?? '' }}</td>
