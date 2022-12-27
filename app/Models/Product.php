@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'pounds', 'measured_unit_id'];
+    protected $fillable = ['name', 'description', 'pounds', 'measured_unit_id', 'provider_id'];
 
     public function productDetail(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
