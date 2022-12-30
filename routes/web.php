@@ -12,6 +12,8 @@ use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\ProvidersController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductDetailsController;
+use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\ProductsOrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +34,6 @@ Route::get('/login/{error?}', [LoginController::class, 'index'])->name('site.log
 Route::post('/login', [LoginController::class, 'signIn'])->name('site.login');
 
 Route::middleware(Login::class)->prefix('/app')->group(function () {
-    Route::get('/customers', [CustomersController::class, 'index'])->name('app.customers');
     Route::get('/providers', [ProvidersController::class, 'index'])->name('app.providers');
     Route::post('/providers/list', [ProvidersController::class, 'list'])->name('app.providers.list');
     Route::get('/providers/list', [ProvidersController::class, 'list'])->name('app.providers.list');
@@ -44,8 +45,11 @@ Route::middleware(Login::class)->prefix('/app')->group(function () {
     Route::get('/sign-out', [LoginController::class, 'signOut'])->name('app.signOut');
 
     Route::resources([
-        'products' => ProductsController::class,
-        'product-details' => ProductDetailsController::class,
+        'products'          => ProductsController::class,
+        'product-details'   => ProductDetailsController::class,
+        'customers'         => CustomersController::class,
+        'orders'            => OrdersController::class,
+        'products-orders'   => ProductsOrdersController::class,
     ]);
 
 });
