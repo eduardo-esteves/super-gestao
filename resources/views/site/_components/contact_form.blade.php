@@ -38,13 +38,15 @@
     <br>
     <textarea
         name="message"
-        class="{{ $class }}">
-        Preencha aqui a sua mensagem
+        rows="10"
+        class="{{ $class }}">Preencha aqui a sua mensagem
     </textarea>
     <br>
-    <button
-        type="submit"
-        class="{{ $class }}">
-        ENVIAR
-    </button>
+    <div class="wrapper-button">
+        <button
+            type="submit"
+            class="form {{ $class }}">
+            ENVIAR
+        </button>
+    </div>
 </form>
