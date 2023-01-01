@@ -8,19 +8,13 @@ p, span {
     color: #ffffff;
 }
 
-h1 {
+h1, h2 {
     color: #ffffff;
-    font-size: 28px;
-}
-
-h2 {
-    color: #333333;
-    font-size: 22px;
 }
 
 input, select, textarea, button {
     width: 100%;
-    padding: 10px 15px;
+    padding: 15px;
     margin: 10px 0 10px 0;
     box-sizing: border-box;
     border-radius: 3px;
@@ -28,12 +22,19 @@ input, select, textarea, button {
     color: #333;
 }
 
+button.form {
+    display: block;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .texto-branco {
     color: #ffffff;
 }
 
 .borda-branca {
-    border: solid 1px #fff;
+    border: solid 1px #c4e4ff;
 }
 
 .borda-preta {
@@ -65,7 +66,7 @@ button:hover {
 
 .topo {
     width: 100%;
-    background-color: #f8f8f8;
+    background-color: #e9e5e5;
     position: absolute;
     padding: 20px 0 10px 0;
 }

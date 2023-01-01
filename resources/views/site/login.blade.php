@@ -34,10 +34,12 @@
                             ? $errors->first('password')
                             : ''
                     }}
-                    <button
-                        type="submit"
-                        class="borda-preta"> Enviar
-                    </button>
+                    <div class="wrapper-button">
+                        <button
+                            type="submit"
+                            class="borda-preta form"> Enviar
+                        </button>
+                    </div>
                 </form>
                 {{ !empty($error) ? $error : '' }}
             </div>
