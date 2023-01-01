@@ -9,13 +9,19 @@
             <div class="informacoes">
                 <h1>Sistema Super Gestão</h1>
                 <p>Software para gestão empresarial ideal para sua empresa.<p>
-                <div class="chamada">
-                    <img src="{{ asset('/img/check.png') }}" alt="check img">
-                    <span class="texto-branco">Gestão completa e descomplicada</span>
-                </div>
-                <div class="chamada">
-                    <img src="{{ asset('/img/check.png') }}" alt="check img">
-                    <span class="texto-branco">Sua empresa na nuvem</span>
+                <div class="wrapper-features">
+                    <div class="itens-features">
+                        <img class="check" src="{{ asset('/img/check.png') }}" alt="check img">
+                        <span class="texto-branco">30% off adquirindo esse mês</span>
+                    </div>
+                    <div class="itens-features">
+                        <img class="check" src="{{ asset('/img/check.png') }}" alt="check img">
+                        <span class="texto-branco">Gestão completa e descomplicada</span>
+                    </div>
+                    <div class="itens-features">
+                        <img class="check" src="{{ asset('/img/check.png') }}" alt="check img">
+                        <span class="texto-branco">Sua empresa na nuvem com direito ao melhor suporte</span>
+                    </div>
                 </div>
             </div>
 

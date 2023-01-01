@@ -22,6 +22,12 @@ input, select, textarea, button {
     color: #333;
 }
 
+.wrapper-form-contact {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 button.form {
     display: block;
     width: 30%;
@@ -132,9 +138,19 @@ button:hover {
     margin: 0 60px 60px 40px;
 }
 
-.chamada {
+.wrapper-features {
     margin-top: 30px;
-    margin-left: 20px;
+}
+
+.itens-features {
+    display: flex;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+.wrapper-features img {
+    margin-right: 0.3rem;
+    max-width: 1rem;
 }
 
 .video {
