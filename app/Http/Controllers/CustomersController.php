@@ -12,7 +12,7 @@ class CustomersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
         $customers = Customer::paginate(10);
 
@@ -27,9 +27,11 @@ class CustomersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
-        //
+        return view('app.customers.create', [
+            'customers' => []
+        ]);
     }
 
     /**
