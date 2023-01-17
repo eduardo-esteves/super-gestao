@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use Illuminate\Http\Response;
 
 class CustomersController extends Controller
 {
@@ -12,7 +13,8 @@ class CustomersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
+    public function index(Request $request): \Illuminate\Contracts\Foundation\Application | \Illuminate\Http\Response |
+        \Illuminate\View\View
     {
         $customers = Customer::paginate(10);
 
@@ -27,7 +29,8 @@ class CustomersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
+    public function create(): \Illuminate\Contracts\Foundation\Application | \Illuminate\Http\Response |
+        \Illuminate\View\View
     {
         return view('app.customers.create', [
             'customer' => []
@@ -40,7 +43,7 @@ class CustomersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request):  \Illuminate\Contracts\Foundation\Application |
+    public function store(Request $request):  \Illuminate\Contracts\Foundation\Application | \Illuminate\Http\Response |
         \Illuminate\Http\RedirectResponse
     {
         //dd($request->all());
@@ -74,7 +77,8 @@ class CustomersController extends Controller
      * @param  Customer $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
+    public function show(Customer $customer): \Illuminate\Contracts\Foundation\Application | \Illuminate\Http\Response |
+        \Illuminate\View\View
     {
         return view('app.customers.show', [
             'customer' => $customer
@@ -87,7 +91,8 @@ class CustomersController extends Controller
      * @param  Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
+    public function edit(Customer $customer): \Illuminate\Contracts\Foundation\Application | \Illuminate\Http\Response |
+        \Illuminate\View\View
     {
         return view('app.customers.edit', ['customer' => $customer]);
     }
@@ -100,7 +105,7 @@ class CustomersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Customer $customer): \Illuminate\Contracts\Foundation\Application |
-        \Illuminate\Http\RedirectResponse
+        \Illuminate\Http\Response | \Illuminate\Http\RedirectResponse
     {
         $rules = [
             'name'              => 'min:10|max:100',
@@ -128,11 +133,13 @@ class CustomersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Customer $customer): \Illuminate\Contracts\Foundation\Application |
+        \Illuminate\Http\Response | \Illuminate\Http\RedirectResponse
     {
-        //
+       $customer->delete();
+       return redirect()->route('customers.index');
     }
 }
