@@ -95,13 +95,34 @@ class CustomersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Request  $request
+     * @param  Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Customer $customer): \Illuminate\Contracts\Foundation\Application |
+        \Illuminate\Http\RedirectResponse
     {
-        //
+        $rules = [
+            'name'              => 'min:10|max:100',
+            'ocupation'         => 'min:5|max:100',
+            'age'               => 'integer',
+            'gender'            => 'size:1',
+            'married'           => 'boolean',
+        ];
+
+        $msg = [
+            'name.min'          => 'Deve have ao menos 3 caracteres',
+            'name.max'          => 'Máximo de 100 caracteres',
+            'ocupation.min'     => 'Minímo de 100 caracteres',
+            'age.integer'       => 'Digite um valor inteiro',
+            'gender.size'       => 'Informe F ou M',
+            'married.boolean'   => 'Escolha uma entre as opções',
+        ];
+
+        $request->validate($rules, $msg);
+
+        $customer->update($request->all());
+        return redirect()->route('customers.show', ['customer' => $customer->id]);
     }
 
     /**
