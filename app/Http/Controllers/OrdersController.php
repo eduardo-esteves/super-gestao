@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request): \Illuminate\Contracts\Foundation\Application | \Iluminate\Http\Response |
+        \Illuminate\View\View
     {
-        //
+        $orders = Order::paginate(10);
+        return view('app.orders.index', [
+            'orders'    => $orders,
+            'request'   => $request->all()
+        ]);
     }
 
     /**
