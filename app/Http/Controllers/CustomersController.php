@@ -30,7 +30,7 @@ class CustomersController extends Controller
     public function create(): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
         return view('app.customers.create', [
-            'customers' => []
+            'customer' => []
         ]);
     }
 

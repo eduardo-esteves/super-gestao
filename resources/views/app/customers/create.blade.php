@@ -17,7 +17,7 @@
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
                 {{ $msg ?? '' }}
                 @component('app._components.form_customer', [
-                    'customers'         => $customers,
+                    'customer'         => $customer,
                 ])
                 @endcomponent
             </div>
