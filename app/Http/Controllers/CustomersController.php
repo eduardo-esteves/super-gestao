@@ -71,7 +71,7 @@ class CustomersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Customer
+     * @param  Customer $customer
      * @return \Illuminate\Http\Response
      */
     public function show(Customer $customer): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
@@ -84,12 +84,12 @@ class CustomersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Customer $customer): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
-        //
+        return view('app.customers.edit', ['customer' => $customer]);
     }
 
     /**
