@@ -40,9 +40,32 @@ class CustomersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request):  \Illuminate\Contracts\Foundation\Application |
+        \Illuminate\Http\RedirectResponse
     {
-        //
+        //dd($request->all());
+        $rules = [
+            'name'              => 'min:10|max:100',
+            'ocupation'         => 'min:5|max:100',
+            'age'               => 'integer',
+            'gender'            => 'size:1',
+            'married'           => 'boolean',
+        ];
+
+        $msg = [
+            'name.min'          => 'Deve have ao menos 3 caracteres',
+            'name.max'          => 'Máximo de 100 caracteres',
+            'ocupation.min'     => 'Minímo de 100 caracteres',
+            'age.integer'       => 'Digite um valor inteiro',
+            'gender.size'       => 'Informe F ou M',
+            'married.boolean'   => 'Escolha uma entre as opções',
+        ];
+
+        $request->validate($rules, $msg);
+
+        Customer::create($request->all());
+
+        return redirect()->route('customers.index');
     }
 
     /**
