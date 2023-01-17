@@ -33,3 +33,6 @@ with Xdebug v3.1.1, Copyright (c) 2002-2021, by Derick Rethans
 - Vá no arquivo .env e altere o DB_DATABASE para o nome do banco criado anteriormente
 - Execute o comando php arisan migrate
 - Verifique se as tabelas foram criadas no banco de dados criado no primeiro passo
+
+### Prints 
+![image](https://user-images.githubusercontent.com/93061383/210179324-156689a5-a9fd-4032-9f1a-7868f83bea00.png)
