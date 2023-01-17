@@ -71,12 +71,14 @@ class CustomersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Customer
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer): \Illuminate\Contracts\Foundation\Application | \Illuminate\View\View
     {
-        //
+        return view('app.customers.show', [
+            'customer' => $customer
+        ]);
     }
 
     /**
