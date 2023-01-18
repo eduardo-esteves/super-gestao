@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Customer;
 
 class OrdersController extends Controller
 {
@@ -13,8 +14,8 @@ class OrdersController extends Controller
      * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request): \Illuminate\Contracts\Foundation\Application | \Iluminate\Http\Response |
-        \Illuminate\View\View
+    public function index(Request $request): \Illuminate\Contracts\Foundation\Application | \Illuminate\Http\Response |
+        \Illuminate\Contracts\View\View
     {
         $orders = Order::paginate(10);
         return view('app.orders.index', [
@@ -28,20 +29,36 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): \Illuminate\Contracts\Foundation\Application | \Illuminate\Http\Response |
+        \Illuminate\Contracts\View\View
     {
-        //
+        $customers = Customer::all();
+
+        return view('app.orders.create', [
+            'order'     => [],
+            'customers' => $customers
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Contracts\Foundation\Application | \Illuminate\Http\Response |
+        \Illuminate\Http\RedirectResponse
     {
-        //
+        $rules = ['customer_id' => 'exists:customers,id'];
+        $msg = ['customer_id.exists' => 'O cliente informado não existe'];
+
+        $request->validate($rules, $msg);
+
+        $order = new Order();
+        $order->customer_id = $request->input('customer_id');
+        $order->save();
+
+        return redirect()->route('orders.index');
     }
 
     /**
