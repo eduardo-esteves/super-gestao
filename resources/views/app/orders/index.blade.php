@@ -20,6 +20,7 @@
                     <tr>
                         <th>ID</th>
                         <th>ID Cliente</th>
+                        <th>Adicionar</th>
                         <th colspan="3">Açoes</th>
                     </tr>
                     </thead>
@@ -28,6 +29,11 @@
                         <tr>
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->customer_id }}</td>
+                            <td>
+                                <a href="{{ route('app.products-orders.create', ['order' => $order->id]) }}">
+                                    Adicionar Produtos
+                                </a>
+                            </td>
                             <td>
                                 <a href="{{ route('orders.show', [
                                 'order' => $order->id]) }}">

@@ -43,13 +43,17 @@ Route::middleware(Login::class)->prefix('/app')->group(function () {
     Route::get('/providers/delete/{id}', [ProvidersController::class, 'delete'])->name('app.providers.delete');
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/sign-out', [LoginController::class, 'signOut'])->name('app.signOut');
+    // Created two news personalized routes to save one or more product for the a determined order
+    Route::get('products-orders/create/{order}', [ProductsOrdersController::class, 'create'])
+        ->name('app.products-orders.create');
+    Route::post('products-orders/store/{order}', [ProductsOrdersController::class, 'store'])
+        ->name('app.products-orders.store');
 
     Route::resources([
         'products'          => ProductsController::class,
         'product-details'   => ProductDetailsController::class,
         'customers'         => CustomersController::class,
         'orders'            => OrdersController::class,
-        'products-orders'   => ProductsOrdersController::class,
     ]);
 
 });
