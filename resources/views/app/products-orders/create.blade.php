@@ -19,6 +19,27 @@
             <p>Cliente: {{ $order->customer_id }}</p>
 
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
+                <h3>Itens do pedido</h3>
+                <table border="1" width="100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome do produto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($order->products as $product)
+                        <tr>
+                            <td>
+                                {{ $product->id }}
+                            </td>
+                            <td>
+                                {{ $product->name }}
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
                 @component('app._components.form_product_order', [
                     'order'     => $order,
                     'products'  => $products
