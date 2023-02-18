@@ -30,7 +30,7 @@ input, select, textarea, button {
 
 button.form {
     display: block;
-    width: 30%;
+    width: 20%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -170,7 +170,7 @@ button:hover {
 }
 
 .titulo-pagina {
-    padding: 100px 0 60px 0;
+    padding: 70px 0 5px;
     background-color: #2a9ee2;
     text-align: center;
 }
@@ -213,19 +213,18 @@ button:hover {
 }
 
 .alert.alert-danger {
-    width: 70%;
-    margin: 0 auto;
-    color: #fff;
+    margin: 1rem auto;
+    color: #B94A48;
+    background-color: #F2DEDE;
+    border: 2px solid #EED3D7;
+    border-radius: 4px;
+    padding: .5rem 1rem;
+    text-align: left;
 }
 
 .alert.alert-danger li {
-    display: block;
-    list-style: none;
-    background-color: red;
-    padding: 15px 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 5px 0;
+    list-style: lower-roman;
 }
 
 svg.w-5.h-5 {
