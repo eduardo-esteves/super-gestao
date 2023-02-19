@@ -8,10 +8,6 @@ p, span {
     color: #ffffff;
 }
 
-h1, h2 {
-    color: #ffffff;
-}
-
 input, select, textarea, button {
     width: 100%;
     padding: 15px;
@@ -53,6 +49,41 @@ button {
     color: #fff;
 }
 
+a.btn {
+    padding: 10px 15px;
+    border-radius: 3px;
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+a.btn.secondary {
+    background: #6c757d;
+    border: #6c757d solid 1px;
+    color: #fff;
+}
+
+a.btn.primary {
+    background: #2a9ee2;
+    border: #77ccfd solid 1px;
+    color: #fff;
+}
+
+a.btn.success {
+    background: #28a745;
+    border: #05a129 solid 1px;
+    color: #fff;
+}
+
+a.btn.primary:hover {
+    background: #0887d1;
+    border: #01598d solid 1px;
+}
+
+a.btn.success:hover {
+    background: #05a129;
+    border: #01598d solid 1px;
+}
+
 button:hover {
     background-color: #6ea22c;
 }
@@ -84,8 +115,8 @@ button:hover {
 }
 
 .menu {
-    float: right;
-    margin-right: 40px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .menu li {
@@ -93,21 +124,10 @@ button:hover {
     float: left;
 }
 
-.menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
 .menu a {
     text-decoration: none;
     padding: 14px 16px;
     color: #333;
-}
-
-.menu a:hover {
-    color: #268fd0;
 }
 
 .conteudo-destaque {
@@ -163,16 +183,19 @@ button:hover {
 }
 
 .conteudo-pagina {
-    width: 100%;
-    height: 100%;
+    height: 88vh;
     text-align: center;
-    margin-bottom: 100px;
 }
 
 .titulo-pagina {
     padding: 70px 0 5px;
     background-color: #2a9ee2;
     text-align: center;
+}
+
+h1.main-title, h2.main-title {
+    color: #fff;
+    margin-top: 35px;
 }
 
 .titulo-pagina-2 {
@@ -192,7 +215,8 @@ button:hover {
 }
 
 .rodape {
-    width: 100%;
+    height: 12vh;
+    background-color: #f8f8f8;
 }
 
 .redes-sociais, .area-contato, .localizacao {
@@ -200,8 +224,6 @@ button:hover {
     border-top:solid 1px #ccc;
     float: left;
     text-align: center;
-    background-color: #f8f8f8;
-    height: 250px;
 }
 
 .redes-sociais, .area-contato, .localizacao p, span {
@@ -209,7 +231,12 @@ button:hover {
 }
 
 .redes-sociais img {
-    margin: 0 15px 0 15px;
+    margin: 0 5px;
+    width: 40px;
+}
+
+.localizacao img {
+    width: 40px;
 }
 
 .alert.alert-danger {
@@ -229,4 +256,40 @@ button:hover {
 
 svg.w-5.h-5 {
     max-width: 15px;
+}
+
+table.app {
+    width: 100%;
+    margin: 2rem 0;
+}
+
+table.app thead {
+    height: 50px;
+    color: #2f373df2;
+    background: #d4ebff;
+}
+
+table.app td {
+    border-bottom: 1px solid #bce3fb;
+    padding: 10px;
+}
+
+table.app a {
+    text-decoration: none;
+}
+
+table.app tr.odd {
+    background: #f1f1f1;
+}
+
+span[aria-current="page"] {
+    background: #d4ebff;
+    border: .02rem solid #bad4eb;
+    border-radius: 4px;
+    padding: 7px;
+}
+
+a[aria-label^="Go to page"] {
+    padding: 7px;
+    text-decoration: none;
 }

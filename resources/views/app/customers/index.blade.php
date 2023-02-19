@@ -5,34 +5,33 @@
 @section('content')
     <div class="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p>Clientes - Listar</p>
+            <h2 class="main-title">Clientes - Listar</h2>
         </div>
-        <div class="menu">
-            <ul>
-                <li><a href="{{ route('customers.create') }}">Novo</a></li>
-                <li><a href="">Consulta</a></li>
-            </ul>
-        </div>
+        @include('app._includes.menu-buttons', [
+            'add'       => 'customers.create',
+            'search'    => 'customers.search'
+        ])
         <div class="informacao-pagina">
             <div style="width: 70%; margin-left: auto; margin-right: auto;">
-                <table border="1" width="100%">
+                <table class="app">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>Nome</th>
-                        <th>Idade</th>
-                        <th>Sexo</th>
                         <th>Profissão</th>
-                        <th>Casado?</th>
+                        <th>Sexo</th>
+                        <th>Idade</th>
                         <th colspan="3">Açoes</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach( $customers as $customer)
-                        <tr>
+                    @foreach( $customers as $key =>$customer)
+                        <tr class="{{ (++$key % 2 === 0) ? 'even' : 'odd' }}">
+                            <td>{{ $key }}</td>
                             <td>{{ $customer->name }}</td>
-                            <td>{{ $customer->age }}</td>
-                            <td>{{ $customer->gender }}</td>
                             <td>{{ $customer->occupation }}</td>
+                            <td>{{ $customer->gender }}</td>
+                            <td>{{ $customer->age }}</td>
                             <td>
                                 <a href="{{ route('customers.show', [
                                 'customer' => $customer->id]) }}">

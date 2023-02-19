@@ -5,7 +5,7 @@
 @section('content')
     <div class="conteudo-pagina">
         <div class="titulo-pagina">
-            <h1>{{ $title }}</h1>
+            <h1 class="main-title">{{ $title }}</h1>
         </div>
 
         <div class="informacao-pagina">

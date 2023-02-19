@@ -5,7 +5,7 @@
 @section('content')
     <div class="conteudo-pagina">
         <div class="titulo-pagina">
-            <h1>Entre em contato conosco</h1>
+            <h1 class="main-title">Entre em contato conosco</h1>
         </div>
 
         <div class="informacao-pagina">
@@ -29,7 +29,7 @@
             <img src="{{ asset('/img/youtube.png') }}">
         </div>
         <div class="area-contato">
-            <h2>Contato</h2>
+            <h2 class="main-title">Contato</h2>
             <span>(11) 3333-4444</span>
             <br>
             <span>supergestao@dominio.com.br</span>

@@ -5,14 +5,11 @@
 @section('content')
     <div class="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p>Adicionar Produtos aos Pedidos > Adicionar</p>
+            <h2 class="main-title">Adicionar Produtos aos Pedidos > Adicionar</h2>
         </div>
-        <div class="menu">
-            <ul>
-                <li><a href="{{ route('orders.index') }}">Voltar</a></li>
-                <li><a href="">Consulta</a></li>
-            </ul>
-        </div>
+        @include('app._includes.menu-buttons', [
+            'back' => 'products.index'
+        ])
         <div class="informacao-pagina">
             <h4>Detalhes do pedido</h4>
             <p>ID do pedido: {{ $order->id }}</p>
@@ -20,7 +17,7 @@
 
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
                 <h3>Itens do pedido</h3>
-                <table border="1" width="100%">
+                <table class="app">
                     <thead>
                         <tr>
                             <th>ID</th>

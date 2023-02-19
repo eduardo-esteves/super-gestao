@@ -7,7 +7,7 @@
 
         <div class="esquerda">
             <div class="informacoes">
-                <h1>Sistema Super Gestão</h1>
+                <h1 class="main-title">Sistema Super Gestão</h1>
                 <p>Software para gestão empresarial ideal para sua empresa.<p>
                 <div class="wrapper-features">
                     <div class="itens-features">
@@ -32,7 +32,7 @@
 
         <div class="direita">
             <div class="contato">
-                <h2>Contato</h2>
+                <h2 class="main-title">Contato</h2>
                 <p>Caso tenha qualquer dúvida por favor entre em contato com nossa equipe pelo formulário abaixo.<p>
                 @component('site._components.contact_form', [
                     'class' => 'borda-branca',

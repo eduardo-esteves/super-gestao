@@ -5,14 +5,12 @@
 @section('content')
     <div class="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p>Fornecedor - Pesquisar</p>
+            <h2 class="main-title">Fornecedor - Pesquisar</h2>
         </div>
-        <div class="menu">
-            <ul>
-                <li><a href="{{ route('app.providers.add') }}">Novo</a></li>
-                <li><a href="{{ route('app.providers') }}">Consulta</a></li>
-            </ul>
-        </div>
+        @include('app._includes.menu-buttons', [
+            'add' => 'app.providers.add',
+            'search' => 'app.providers',
+        ])
         <div class="informacao-pagina">
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
                 <form action="{{ route('app.providers.list') }}" method="post">

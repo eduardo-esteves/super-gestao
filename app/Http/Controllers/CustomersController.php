@@ -142,4 +142,9 @@ class CustomersController extends Controller
        $customer->delete();
        return redirect()->route('customers.index');
     }
+
+    public function search()
+    {
+        return 'Olá search';
+    }
 }
