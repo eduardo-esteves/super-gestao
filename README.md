@@ -41,4 +41,15 @@ with Xdebug v3.1.1, Copyright (c) 2002-2021, by Derick Rethans
 - Verifique se as tabelas foram criadas no banco de dados criado no primeiro passo
 
 ### Prints 
+
+## Home
 ![image](https://user-images.githubusercontent.com/93061383/210179324-156689a5-a9fd-4032-9f1a-7868f83bea00.png)
+
+## Login
+![image](https://user-images.githubusercontent.com/93061383/219909849-fbb05bf4-6d87-4e9b-95e3-9211b510ddd2.png)
+
+## App gerenciamento de clientes
+![image](https://user-images.githubusercontent.com/93061383/219909869-160d623a-f785-48dc-9c59-ec363f999a59.png)
+
+## App busca de registros
+![image](https://user-images.githubusercontent.com/93061383/219909946-87377ffc-a0fe-4d7f-91a3-dc21acc2d616.png)
