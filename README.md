@@ -6,16 +6,22 @@ Super Gestão é um aplicativo web para gerenciar os produtos e vendas de um eco
 e treinar as últimas features tanto do framework Laravel onde usei a versão 8.83.15 quanto da linguagem PHP na 
 versão 8.1.1
 
+## Caracteriticas
+
+- Site com formulário de contato
+- Site com area de login
+- Site com area protegida para gerenciamento de clientes, produtos e fornecedores após autenticação
 
 ## Requisitos
-- PHP ^8.0
-- Laravel 8.75
+- PHP : 7.3 | ^8.0
+- Laravel : ^8.75
 - Composer
 
 ### Verificando a versão do PHP
 Para verificar se o PHP está instalado e em qual versão basta executar o comando abaixo.
-
-root@bb7bb6d6e40a:/var/www/html# php -v <br />
+````
+root@bb7bb6d6e40a:/var/www/html# php -v
+````
 PHP 8.1.1 (cli) (built: Dec 21 2021 19:35:25) (NTS) <br />
 Copyright (c) The PHP Group <br />
 Zend Engine v4.1.1, Copyright (c) Zend Technologies <br />
@@ -23,7 +29,7 @@ with Xdebug v3.1.1, Copyright (c) 2002-2021, by Derick Rethans
 
 ### Instalação do framework através do composer
 
-- Copie o .env.example,cole e renome para .env
+- Copie o .env.example, cole e renomei para .env
 - Execute o comando composer install
 - Execute o comando php artisan key:generate
 

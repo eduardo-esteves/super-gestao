@@ -29,7 +29,7 @@
             <img src="{{ asset('/img/youtube.png') }}">
         </div>
         <div class="area-contato">
-            <h2 class="main-title">Contato</h2>
+            <h2>Contato</h2>
             <span>(11) 3333-4444</span>
             <br>
             <span>supergestao@dominio.com.br</span>
